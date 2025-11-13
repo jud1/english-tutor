@@ -1,0 +1,77 @@
+{
+   "type": "object",
+   "required": [
+      "meta",
+      "skills",
+      "mini_tasks",
+      "errors",
+      "notes",
+      "next_focus"
+   ],
+   "properties": {
+      "meta": {
+         "type": "object",
+         "required": [
+            "id",
+            "date",
+            "type",
+            "duration_min"
+         ],
+         "properties": {
+            "id": {
+               "type": "string"
+            },
+            "date": {
+               "type": "string"
+            },
+            "type": {
+               "type": "string",
+               "enum": [
+                  "biweekly"
+               ]
+            },
+            "duration_min": {
+               "type": "number"
+            }
+         }
+      },
+      "skills": {
+         "type": "object",
+         "properties": {
+            "listening": {
+               "type": "number"
+            },
+            "speaking": {
+               "type": "number"
+            },
+            "reading": {
+               "type": "number"
+            },
+            "writing": {
+               "type": "number"
+            }
+         }
+      },
+      "mini_tasks": {
+         "type": "array",
+         "items": {
+            "type": "string"
+         }
+      },
+      "errors": {
+         "type": "array",
+         "items": {
+            "type": "string"
+         }
+      },
+      "notes": {
+         "type": "string"
+      },
+      "next_focus": {
+         "type": "array",
+         "items": {
+            "type": "string"
+         }
+      }
+   }
+}

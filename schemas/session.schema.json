@@ -1,0 +1,116 @@
+{
+   "type": "object",
+   "required": [
+      "meta",
+      "topic",
+      "summary",
+      "learning_points",
+      "mistakes",
+      "homework",
+      "next_focus"
+   ],
+   "properties": {
+      "meta": {
+         "type": "object",
+         "required": [
+            "id",
+            "date",
+            "duration_min",
+            "type",
+            "subtype"
+         ],
+         "properties": {
+            "id": {
+               "type": "string"
+            },
+            "date": {
+               "type": "string"
+            },
+            "duration_min": {
+               "type": "number"
+            },
+            "type": {
+               "type": "string",
+               "enum": [
+                  "class"
+               ]
+            },
+            "subtype": {
+               "type": "string",
+               "enum": [
+                  "study",
+                  "practice",
+                  "oral",
+                  "review",
+                  "thematic"
+               ]
+            },
+            "materials": {
+               "type": "array",
+               "items": {
+                  "type": "string"
+               }
+            }
+         }
+      },
+      "topic": {
+         "type": "string"
+      },
+      "summary": {
+         "type": "string"
+      },
+      "learning_points": {
+         "type": "array",
+         "items": {
+            "type": "string"
+         }
+      },
+      "examples": {
+         "type": "array",
+         "items": {
+            "type": "object",
+            "properties": {
+               "en": {
+                  "type": "string"
+               },
+               "es": {
+                  "type": "string"
+               }
+            },
+            "required": [
+               "en"
+            ]
+         }
+      },
+      "mistakes": {
+         "type": "array",
+         "items": {
+            "type": "object",
+            "properties": {
+               "error": {
+                  "type": "string"
+               },
+               "correction": {
+                  "type": "string"
+               }
+            },
+            "required": [
+               "error",
+               "correction"
+            ]
+         }
+      },
+      "homework": {
+         "type": "array",
+         "items": {
+            "type": "string"
+         }
+      },
+      "next_focus": {
+         "type": "array",
+         "items": {
+            "type": "string"
+         }
+      }
+   }
+}

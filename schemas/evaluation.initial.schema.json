@@ -1,0 +1,290 @@
+{
+   "type": "object",
+   "required": [
+      "meta",
+      "profile",
+      "placement",
+      "grammar",
+      "vocabulary",
+      "listening",
+      "reading",
+      "speaking",
+      "writing",
+      "affective",
+      "summary",
+      "next_focus"
+   ],
+   "properties": {
+      "meta": {
+         "type": "object",
+         "required": [
+            "id",
+            "date",
+            "type",
+            "duration_min"
+         ],
+         "properties": {
+            "id": {
+               "type": "string"
+            },
+            "date": {
+               "type": "string"
+            },
+            "type": {
+               "type": "string",
+               "enum": [
+                  "initial"
+               ]
+            },
+            "duration_min": {
+               "type": "number"
+            }
+         }
+      },
+      "profile": {
+         "type": "object",
+         "required": [
+            "goals",
+            "context"
+         ],
+         "properties": {
+            "goals": {
+               "type": "array",
+               "items": {
+                  "type": "string"
+               }
+            },
+            "context": {
+               "type": "string"
+            }
+         }
+      },
+      "placement": {
+         "type": "object",
+         "required": [
+            "cefr",
+            "skills"
+         ],
+         "properties": {
+            "cefr": {
+               "type": "string"
+            },
+            "skills": {
+               "type": "object",
+               "properties": {
+                  "listening": {
+                     "type": "number"
+                  },
+                  "speaking": {
+                     "type": "number"
+                  },
+                  "reading": {
+                     "type": "number"
+                  },
+                  "writing": {
+                     "type": "number"
+                  }
+               }
+            }
+         }
+      },
+      "grammar": {
+         "type": "array",
+         "items": {
+            "type": "object",
+            "required": [
+               "topic",
+               "score",
+               "notes"
+            ],
+            "properties": {
+               "topic": {
+                  "type": "string"
+               },
+               "score": {
+                  "type": "number"
+               },
+               "notes": {
+                  "type": "string"
+               }
+            }
+         }
+      },
+      "vocabulary": {
+         "type": "object",
+         "required": [
+            "general_range",
+            "technical_range",
+            "new_words"
+         ],
+         "properties": {
+            "general_range": {
+               "type": "number"
+            },
+            "technical_range": {
+               "type": "number"
+            },
+            "new_words": {
+               "type": "array",
+               "items": {
+                  "type": "string"
+               }
+            }
+         }
+      },
+      "listening": {
+         "type": "array",
+         "items": {
+            "type": "object",
+            "required": [
+               "source",
+               "score",
+               "notes"
+            ],
+            "properties": {
+               "source": {
+                  "type": "string"
+               },
+               "score": {
+                  "type": "number"
+               },
+               "notes": {
+                  "type": "string"
+               }
+            }
+         }
+      },
+      "reading": {
+         "type": "array",
+         "items": {
+            "type": "object",
+            "required": [
+               "source",
+               "score",
+               "notes"
+            ],
+            "properties": {
+               "source": {
+                  "type": "string"
+               },
+               "score": {
+                  "type": "number"
+               },
+               "notes": {
+                  "type": "string"
+               }
+            }
+         }
+      },
+      "speaking": {
+         "type": "object",
+         "required": [
+            "tasks",
+            "feedback"
+         ],
+         "properties": {
+            "tasks": {
+               "type": "array",
+               "items": {
+                  "type": "string"
+               }
+            },
+            "feedback": {
+               "type": "object",
+               "properties": {
+                  "fluency": {
+                     "type": "number"
+                  },
+                  "pronunciation": {
+                     "type": "number"
+                  },
+                  "grammar_control": {
+                     "type": "number"
+                  },
+                  "lexical_range": {
+                     "type": "number"
+                  },
+                  "interaction": {
+                     "type": "number"
+                  },
+                  "notes": {
+                     "type": "string"
+                  }
+               }
+            }
+         }
+      },
+      "writing": {
+         "type": "object",
+         "required": [
+            "tasks",
+            "feedback"
+         ],
+         "properties": {
+            "tasks": {
+               "type": "array",
+               "items": {
+                  "type": "string"
+               }
+            },
+            "feedback": {
+               "type": "object",
+               "properties": {
+                  "structure": {
+                     "type": "number"
+                  },
+                  "tone": {
+                     "type": "number"
+                  },
+                  "accuracy": {
+                     "type": "number"
+                  },
+                  "cohesion": {
+                     "type": "number"
+                  },
+                  "conciseness": {
+                     "type": "number"
+                  },
+                  "notes": {
+                     "type": "string"
+                  }
+               }
+            }
+         }
+      },
+      "affective": {
+         "type": "object",
+         "required": [
+            "confidence",
+            "blocks",
+            "strategies"
+         ],
+         "properties": {
+            "confidence": {
+               "type": "number"
+            },
+            "blocks": {
+               "type": "array",
+               "items": {
+                  "type": "string"
+               }
+            },
+            "strategies": {
+               "type": "array",
+               "items": {
+                  "type": "string"
+               }
+            }
+         }
+      },
+      "summary": {
+         "type": "string"
+      },
+      "next_focus": {
+         "type": "array",
+         "items": {
+            "type": "string"
+         }
+      }
+   }
+}

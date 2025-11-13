@@ -1,0 +1,84 @@
+{
+   "type": "object",
+   "required": [
+      "profile",
+      "current_level",
+      "counters",
+      "history_index",
+      "active_mistakes",
+      "last_topics",
+      "next_focus",
+      "last_update"
+   ],
+   "properties": {
+      "profile": {
+         "type": "object",
+         "required": [
+            "name",
+            "goals",
+            "target_date"
+         ],
+         "properties": {
+            "name": {
+               "type": "string"
+            },
+            "goals": {
+               "type": "array",
+               "items": {
+                  "type": "string"
+               }
+            },
+            "target_date": {
+               "type": "string"
+            }
+         }
+      },
+      "current_level": {
+         "type": "string"
+      },
+      "counters": {
+         "type": "object",
+         "properties": {
+            "sessions": {
+               "type": "number"
+            },
+            "evaluations": {
+               "type": "number"
+            }
+         }
+      },
+      "history_index": {
+         "type": "array",
+         "items": {
+            "type": "string"
+         }
+      },
+      "active_mistakes": {
+         "type": "array",
+         "items": {
+            "type": "string"
+         }
+      },
+      "last_topics": {
+         "type": "array",
+         "items": {
+            "type": "string"
+         }
+      },
+      "next_focus": {
+         "type": "array",
+         "items": {
+            "type": "string"
+         }
+      },
+      "last_update": {
+         "type": "string"
+      },
+      "roadmap_next_4_weeks": {
+         "type": "array",
+         "items": {
+            "type": "string"
+         }
+      }
+   }
+}

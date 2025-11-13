@@ -1,0 +1,97 @@
+{
+   "type": "object",
+   "required": [
+      "meta",
+      "summary",
+      "metrics",
+      "progress_by_skill",
+      "notable_improvements",
+      "active_mistakes",
+      "recommendations"
+   ],
+   "properties": {
+      "meta": {
+         "type": "object",
+         "required": [
+            "id",
+            "month",
+            "year",
+            "period_start",
+            "period_end",
+            "duration_hours"
+         ],
+         "properties": {
+            "id": {
+               "type": "string"
+            },
+            "month": {
+               "type": "string"
+            },
+            "year": {
+               "type": "number"
+            },
+            "period_start": {
+               "type": "string"
+            },
+            "period_end": {
+               "type": "string"
+            },
+            "duration_hours": {
+               "type": "number"
+            }
+         }
+      },
+      "summary": {
+         "type": "string"
+      },
+      "metrics": {
+         "type": "object",
+         "properties": {
+            "classes_held": {
+               "type": "number"
+            },
+            "evaluations_done": {
+               "type": "number"
+            },
+            "attendance_rate": {
+               "type": "number"
+            }
+         }
+      },
+      "progress_by_skill": {
+         "type": "object",
+         "properties": {
+            "listening": {
+               "type": "number"
+            },
+            "speaking": {
+               "type": "number"
+            },
+            "reading": {
+               "type": "number"
+            },
+            "writing": {
+               "type": "number"
+            }
+         }
+      },
+      "notable_improvements": {
+         "type": "array",
+         "items": {
+            "type": "string"
+         }
+      },
+      "active_mistakes": {
+         "type": "array",
+         "items": {
+            "type": "string"
+         }
+      },
+      "recommendations": {
+         "type": "array",
+         "items": {
+            "type": "string"
+         }
+      }
+   }
+}
