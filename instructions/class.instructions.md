@@ -29,7 +29,3 @@ Guidelines for structuring, conducting, and documenting each class session.
 
 ## 6. Resources
 - List of recommended materials, links, or apps for class use
-
-## 7. Session Report Export
-- At the end of each class, generate a session report in JSON format and save it in `outbox/sessions/YYYY-MM-DD-class-<type>-NNN.json`.
-- The file should include: date, class type, topics covered, mistakes and corrections, progress, and relevant observations.

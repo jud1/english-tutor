@@ -28,7 +28,7 @@
             "type": {
                "type": "string",
                "enum": [
-                  "bimonthly"
+                  "quarterly"
                ]
             },
             "duration_min": {
