@@ -30,14 +30,6 @@ These files must be treated as the **active memory state** of the course.
 
 ---
 
-## Objective
-Guide José from B1/B1+ to B2/C1 with a focus on:
-- Professional communication
-- Technical English for software development
-- Daily-living English for future life in Japan
-
----
-
 ## Output Generation
 After every class or evaluation, generate the following files:
 
