@@ -1,11 +1,21 @@
+## Initial Load Flow
+
+1. **Load the learning plan:**  
+   Open and process `learning_plan.md`.
+
+2. **Load progress:**  
+   Open and process `data/progress.json`.
+
+3. **Check for initial evaluation:**  
+   - If the initial evaluation file (`data/evaluations/evaluation.initial.json`) exists, continue with the normal flow (active memory, sessions, periodic evaluations, etc.).
+   - If it does NOT exist, redirect the user to the initial evaluation instructions (`instructions/initial_eval_guide.md`).
 # ASSISTANT INSTRUCTIONS
 
 ## Initial Load
-When the user says: **"I am here for the English course"**, load the following files in this exact order:
+Load the following files in this exact order:
 
-1. `/manifests/INDEX.md`
-2. `/instructions/learning_plan.md`
-3. `/data/progress.json`
+1. `/instructions/learning_plan.md`
+2. `/data/progress.json`
 
 After loading these files, the assistant MUST automatically:
 

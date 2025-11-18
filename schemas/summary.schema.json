@@ -1,0 +1,362 @@
+{
+   "$schema": "https://json-schema.org/draft/2020-12/schema",
+   "title": "Summary",
+   "type": "object",
+   "required": [
+      "meta",
+      "profile",
+      "level_snapshot",
+      "timeline",
+      "recent_work",
+      "errors_and_risks",
+      "next_focus",
+      "notes"
+   ],
+   "properties": {
+      "meta": {
+         "type": "object",
+         "description": "Identity and scope of this summary file.",
+         "required": [
+            "id",
+            "date",
+            "type",
+            "generated_by",
+            "version"
+         ],
+         "properties": {
+            "id": {
+               "type": "string",
+               "description": "Unique identifier for this summary (e.g. summary-2025-11-15-001)."
+            },
+            "date": {
+               "type": "string",
+               "description": "Date the summary was generated (YYYY-MM-DD)."
+            },
+            "type": {
+               "type": "string",
+               "enum": [
+                  "summary"
+               ],
+               "description": "Type of record. Always 'summary'."
+            },
+            "generated_by": {
+               "type": "string",
+               "description": "Tool or agent that generated the summary (e.g. 'copilot', 'human')."
+            },
+            "version": {
+               "type": "string",
+               "description": "Schema or format version for this summary."
+            }
+         }
+      },
+      "profile": {
+         "type": "object",
+         "description": "Static information about the learner and their goals.",
+         "required": [
+            "name",
+            "goals"
+         ],
+         "properties": {
+            "name": {
+               "type": "string",
+               "description": "Learner name (e.g. 'Jose')."
+            },
+            "goals": {
+               "type": "array",
+               "description": "Main learning goals.",
+               "items": {
+                  "type": "string"
+               }
+            }
+         }
+      },
+      "level_snapshot": {
+         "type": "object",
+         "description": "Current estimated level and skill scores.",
+         "required": [
+            "cefr",
+            "skills",
+            "confidence"
+         ],
+         "properties": {
+            "cefr": {
+               "type": "string",
+               "description": "Estimated CEFR level (e.g. 'B1+', 'B2', 'C1')."
+            },
+            "skills": {
+               "type": "object",
+               "description": "Numerical score per skill, usually 0–100.",
+               "properties": {
+                  "listening": {
+                     "type": "number"
+                  },
+                  "speaking": {
+                     "type": "number"
+                  },
+                  "reading": {
+                     "type": "number"
+                  },
+                  "writing": {
+                     "type": "number"
+                  }
+               },
+               "additionalProperties": false
+            },
+            "confidence": {
+               "type": "number",
+               "description": "Subjective global confidence (0–100)."
+            }
+         }
+      },
+      "timeline": {
+         "type": "object",
+         "description": "What period and elements this summary covers.",
+         "required": [
+            "period_start",
+            "period_end"
+         ],
+         "properties": {
+            "period_start": {
+               "type": "string",
+               "description": "Start date of the period covered (YYYY-MM-DD)."
+            },
+            "period_end": {
+               "type": "string",
+               "description": "End date of the period covered (YYYY-MM-DD)."
+            },
+            "related_sessions": {
+               "type": "array",
+               "description": "IDs or filenames of related session JSON files.",
+               "items": {
+                  "type": "string"
+               }
+            },
+            "related_evaluations": {
+               "type": "array",
+               "description": "IDs or filenames of related evaluation JSON files.",
+               "items": {
+                  "type": "string"
+               }
+            }
+         }
+      },
+      "recent_work": {
+         "type": "object",
+         "description": "Detailed description of what has been practiced recently.",
+         "required": [
+            "topics",
+            "activities"
+         ],
+         "properties": {
+            "topics": {
+               "type": "array",
+               "description": "Main grammar, vocabulary, or conversation topics recently studied.",
+               "items": {
+                  "type": "string"
+               }
+            },
+            "activities": {
+               "type": "array",
+               "description": "Types of activities done (e.g. 'study class', 'oral practice', 'listening', 'writing task').",
+               "items": {
+                  "type": "string"
+               }
+            },
+            "vocabulary": {
+               "type": "object",
+               "description": "New or important vocabulary covered.",
+               "properties": {
+                  "words": {
+                     "type": "array",
+                     "items": {
+                        "type": "object",
+                        "required": [
+                           "term"
+                        ],
+                        "properties": {
+                           "term": {
+                              "type": "string"
+                           },
+                           "meaning": {
+                              "type": "string"
+                           },
+                           "example": {
+                              "type": "string"
+                           },
+                           "notes": {
+                              "type": "string"
+                           }
+                        }
+                     }
+                  },
+                  "phrases": {
+                     "type": "array",
+                     "items": {
+                        "type": "object",
+                        "required": [
+                           "expression"
+                        ],
+                        "properties": {
+                           "expression": {
+                              "type": "string"
+                           },
+                           "meaning": {
+                              "type": "string"
+                           },
+                           "example": {
+                              "type": "string"
+                           },
+                           "notes": {
+                              "type": "string"
+                           }
+                        }
+                     }
+                  }
+               }
+            },
+            "homework": {
+               "type": "object",
+               "description": "How homework went and what was assigned.",
+               "properties": {
+                  "previous_assigned": {
+                     "type": "array",
+                     "description": "Homework tasks that were assigned previously.",
+                     "items": {
+                        "type": "string"
+                     }
+                  },
+                  "previous_result": {
+                     "type": "string",
+                     "description": "Short evaluation of how the homework went."
+                  },
+                  "new_assigned": {
+                     "type": "array",
+                     "description": "Homework tasks newly assigned at the end of the period.",
+                     "items": {
+                        "type": "string"
+                     }
+                  }
+               }
+            }
+         }
+      },
+      "errors_and_risks": {
+         "type": "object",
+         "description": "Common mistakes, blocks, and risk factors for progress.",
+         "required": [
+            "active_mistakes"
+         ],
+         "properties": {
+            "active_mistakes": {
+               "type": "array",
+               "description": "Patterns of errors that keep appearing.",
+               "items": {
+                  "type": "object",
+                  "required": [
+                     "label",
+                     "description",
+                     "status"
+                  ],
+                  "properties": {
+                     "label": {
+                        "type": "string",
+                        "description": "Short name (e.g. 'present perfect vs past simple')."
+                     },
+                     "description": {
+                        "type": "string",
+                        "description": "Explanation of the mistake."
+                     },
+                     "examples": {
+                        "type": "array",
+                        "description": "Example incorrect sentences and corrected versions.",
+                        "items": {
+                           "type": "object",
+                           "properties": {
+                              "wrong": {
+                                 "type": "string"
+                              },
+                              "correct": {
+                                 "type": "string"
+                              }
+                           }
+                        }
+                     },
+                     "status": {
+                        "type": "string",
+                        "enum": [
+                           "new",
+                           "persistent",
+                           "improving"
+                        ],
+                        "description": "Whether this mistake is new, ongoing, or getting better."
+                     }
+                  }
+               }
+            },
+            "blocks": {
+               "type": "array",
+               "description": "Psychological or practical blocks (e.g. fear of speaking, time issues).",
+               "items": {
+                  "type": "string"
+               }
+            },
+            "risks": {
+               "type": "array",
+               "description": "Risks for future progress (e.g. 'low speaking practice', 'irregular schedule').",
+               "items": {
+                  "type": "string"
+               }
+            }
+         }
+      },
+      "next_focus": {
+         "type": "object",
+         "description": "What the next classes should focus on.",
+         "required": [
+            "skills",
+            "topics"
+         ],
+         "properties": {
+            "skills": {
+               "type": "array",
+               "description": "Skills to prioritize (e.g. 'speaking fluency', 'listening to fast speech').",
+               "items": {
+                  "type": "string"
+               }
+            },
+            "topics": {
+               "type": "array",
+               "description": "Grammar or vocabulary topics to address next.",
+               "items": {
+                  "type": "string"
+               }
+            },
+            "recommendations": {
+               "type": "array",
+               "description": "High-level recommendations for the AI tutor.",
+               "items": {
+                  "type": "string"
+               }
+            }
+         }
+      },
+      "notes": {
+         "type": "object",
+         "description": "Free-form notes useful for future sessions.",
+         "required": [
+            "teacher_observations"
+         ],
+         "properties": {
+            "teacher_observations": {
+               "type": "string",
+               "description": "Long-form free text with key insights about the learner."
+            },
+            "for_ai_tutor": {
+               "type": "string",
+               "description": "Optional notes directed specifically at the AI tutor (e.g. preferences, strategies that work)."
+            }
+         }
+      }
+   },
+   "additionalProperties": false
+}
