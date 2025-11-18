@@ -17,23 +17,16 @@ Instead, it generates JSON files as **plain text**, and the user manually commit
 
 ---
 
-## How It Works
 
-1. User says: **"I am here for the English course."**
-2. The AI reads:
-   - `/manifests/INDEX.md`
-   - `/instructions/assistant_instructions.md`
-   - `/instructions/learning_plan.md`
-   - `/data/progress.json`
-3. The AI automatically scans:
-   - the **most recent evaluation** from `/data/evaluations/`
-   - the **most recent session** from `/data/sessions/`
-4. The AI teaches the class or runs the evaluation.
-5. The AI outputs new JSON files into **outbox paths** (as plain text).
-6. The user commits them into:
-   - `/data/sessions/`
-   - `/data/evaluations/`
-   - `/data/progress.json`
+
+## Suggested Workflow
+
+1. Start the session: "I am here for the English course."
+2. The assistant loads the context from the repository (`/data/` files and relevant instructions).
+3. The assistant teaches the class or runs the evaluation.
+4. The assistant generates JSON files.
+5. The user saves the generated files in `/outbox/`.
+6. The user reviews and moves them to `/data/`.
 
 This creates a clean, version-controlled memory system for the entire course.
 
@@ -43,104 +36,117 @@ This creates a clean, version-controlled memory system for the entire course.
 
 english-tutor/
 │
+
+
+# English Tutor — Persistent AI Memory Repository
+
+This repository stores the structured memory for an AI-powered English tutoring system. It contains sessions, evaluations, reports, and student progress, enabling continuity and traceability in learning.
+
+---
+
+## Purpose
+
+- Provide persistent, structured memory for the English course.
+- Track progress from intermediate to advanced levels.
+- Store sessions, evaluations, reports, and learning goals.
+
+---
+
+## Current Repository Structure
+
+```
+english-tutor/
+│
 ├── README.md
-│
-├── instructions/
-│ ├── assistant_instructions.md
-│ ├── learning_plan.md
-│ ├── initial_eval_guide.md
-│ ├── evaluation_rubrics.md
-│ └── validation_command.md
-│
-├── manifests/
-│ └── INDEX.md
-│
-├── schemas/
-│ ├── session.schema.json
-│ ├── evaluation.initial.schema.json
-│ ├── evaluation.biweekly.schema.json
-│ ├── evaluation.bimonthly.schema.json
-│ ├── progress.schema.json
-│ ├── report.monthly.schema.json
-│ ├── report.quarterly.schema.json
-│ └── report.global.schema.json
+├── LICENSE
+├── gpt_solo_instructions.md
+├── manifest.md
+├── manifest_solo_gpt.md.md
 │
 ├── data/
-│ ├── progress.json
-│ ├── stats.json
-│ ├── sessions/
-│ ├── evaluations/
-│ └── summaries/
+│   ├── progress.json
+│   ├── stats.json
+│   ├── evaluations/        # (empty)
+│   ├── sessions/           # (empty)
+│   └── summaries/          # (empty)
 │
-└── outbox/
-├── sessions/
-├── evaluations/
-└── progress.json
+├── instructions/
+│   ├── class.instructions.md
+│   ├── evaluation.instructions.md
+│   ├── plan.instructions.md
+│   ├── report.instructions.md
+│   ├── summary.instructions.md
+│   └── validation.instructions.md
+│
+├── manifests/              # (empty)
+│
+├── outbox/
+│   ├── progress.json
+│   ├── evaluations/        # (empty)
+│   └── sessions/           # (empty)
+│
+├── schemas/
+│   ├── evaluation.biweekly.schema.json
+│   ├── evaluation.initial.schema.json
+│   ├── evaluation.monthly.schema.json
+│   ├── evaluation.quarterly.schema.json
+│   ├── progress.schema.json
+│   ├── report.global.schema.json
+│   ├── report.monthly.schema.json
+│   ├── report.quarterly.schema.json
+│   ├── session.schema.json
+│   └── summary.schema.json
+```
 
+**Note:** Several folders are empty and some files mentioned in previous README versions do not exist. The structure above is accurate.
 
 ---
 
 ## File Types
 
-### **Class Sessions**
-Stored in `/data/sessions/`  
-Types:
-- `study`
-- `practice`
-- `oral`
-- `review`
-- `thematic`
-
-### **Evaluations**
-Stored in `/data/evaluations/`  
-Types:
-- `initial`
-- `biweekly`
-- `bimonthly`
-
-### **Reports**
-Stored in `/data/summaries/`  
-Types:
-- monthly  
-- quarterly  
-- global  
-
-### **Progress File**
-`/data/progress.json`  
-The **active memory state** of the course.
+- **Class sessions:** `/data/sessions/` (currently empty)
+- **Evaluations:** `/data/evaluations/` (currently empty)
+- **Reports:** `/data/summaries/` (currently empty)
+- **Progress:** `/data/progress.json` and `/outbox/progress.json`
+- **JSON Schemas:** `/schemas/` (for file validation)
 
 ---
 
 ## Validation
 
-All JSON files must comply with their corresponding schema inside `/schemas/`.
+All JSON files must comply with their corresponding schema in `/schemas/`.
+To validate, you can ask the assistant:
 
-To validate via chat, the user can say:
+> "Validate this file for [type]"
 
-> **"Validate this file for [type]"**
-
-The AI will:
-- load the correct schema  
-- validate the structure  
-- confirm validity or provide corrections  
+The assistant will load the schema, validate the structure, and suggest corrections if needed.
 
 ---
 
-## Workflow Summary
+## Suggested Workflow
 
-1. Start the session:  
-   **“I am here for the English course.”**
-2. AI loads context from the repository.
-3. AI teaches class or runs evaluation.
-4. AI generates JSON files.
-5. User saves generated files in `/outbox/`.
-6. User reviews and commits them into `/data/`.
+1. Start the session: "I am here for the English course."
+2. The assistant loads the context from the repository.
+3. The assistant teaches the class or runs the evaluation.
+4. The assistant generates JSON files.
+5. The user saves the generated files in `/outbox/`.
+6. The user reviews and moves them to `/data/`.
+
+---
+
+## Repository Management Recommendations
+
+- Keep the structure updated and remove references to non-existent files.
+- Document any relevant changes in the README.
+- Keep folders empty only if necessary; otherwise, remove unused folders.
+- Use schemas to validate all files before adding them.
+- If you add new types of sessions, evaluations, or reports, update the README and schemas accordingly.
 
 ---
 
 ## License
 
-This repository contains personal learning progress.  
-**No license provided. All rights reserved.**
+This repository contains personal learning progress.
+**No explicit license. All rights reserved.**
 
 ---
