@@ -1,0 +1,81 @@
+{
+   "type": "object",
+   "required": [
+      "meta",
+      "skills",
+      "topics",
+      "tasks",
+      "feedback",
+      "summary",
+      "next_focus"
+   ],
+   "properties": {
+      "meta": {
+         "type": "object",
+         "required": [
+            "id",
+            "date",
+            "type",
+            "duration_min"
+         ],
+         "properties": {
+            "id": {
+               "type": "string"
+            },
+            "date": {
+               "type": "string"
+            },
+            "type": {
+               "type": "string",
+               "enum": [
+                  "monthly"
+               ]
+            },
+            "duration_min": {
+               "type": "number"
+            }
+         }
+      },
+      "skills": {
+         "type": "object",
+         "properties": {
+            "listening": {
+               "type": "number"
+            },
+            "speaking": {
+               "type": "number"
+            },
+            "reading": {
+               "type": "number"
+            },
+            "writing": {
+               "type": "number"
+            }
+         }
+      },
+      "topics": {
+         "type": "array",
+         "items": {
+            "type": "string"
+         }
+      },
+      "tasks": {
+         "type": "array",
+         "items": {
+            "type": "string"
+         }
+      },
+      "feedback": {
+         "type": "string"
+      },
+      "summary": {
+         "type": "string"
+      },
+      "next_focus": {
+         "type": "array",
+         "items": {
+            "type": "string"
+         }
+      }
+   }
+}

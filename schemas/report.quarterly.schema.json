@@ -1,0 +1,79 @@
+{
+   "type": "object",
+   "required": [
+      "meta",
+      "summary",
+      "average_scores",
+      "skills_trend",
+      "milestones",
+      "feedback_summary",
+      "next_focus"
+   ],
+   "properties": {
+      "meta": {
+         "type": "object",
+         "required": [
+            "id",
+            "quarter",
+            "year",
+            "period_start",
+            "period_end"
+         ],
+         "properties": {
+            "id": {
+               "type": "string"
+            },
+            "quarter": {
+               "type": "string"
+            },
+            "year": {
+               "type": "number"
+            },
+            "period_start": {
+               "type": "string"
+            },
+            "period_end": {
+               "type": "string"
+            }
+         }
+      },
+      "summary": {
+         "type": "string"
+      },
+      "average_scores": {
+         "type": "object",
+         "properties": {
+            "listening": {
+               "type": "number"
+            },
+            "speaking": {
+               "type": "number"
+            },
+            "reading": {
+               "type": "number"
+            },
+            "writing": {
+               "type": "number"
+            }
+         }
+      },
+      "skills_trend": {
+         "type": "string"
+      },
+      "milestones": {
+         "type": "array",
+         "items": {
+            "type": "string"
+         }
+      },
+      "feedback_summary": {
+         "type": "string"
+      },
+      "next_focus": {
+         "type": "array",
+         "items": {
+            "type": "string"
+         }
+      }
+   }
+}
